@@ -177,7 +177,9 @@ created () {
     },
 
 methods: {
-    
+    changeActiveContact: function(clickedIndex) {
+        this.activeIndex = clickedIndex;
+    }
     },
 }).mount('#app')
 

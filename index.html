@@ -62,7 +62,7 @@
                 <!-- users-section -->
                 <div class="users-container">
 
-                    <div class="users" v-for="(curContact, index) in contacts">
+                    <div class="users" v-for="(curContact, index) in contacts" @click="changeActiveContact(index)">
 
                         <img :src="'img/avatar' + curContact.avatar + '.jpg'" alt="">
 
@@ -88,8 +88,8 @@
                 <header class="header">
 
                     <div class="avatar">
-                        <img src="./img/avatar_1.jpg" alt="avatar">
-                        <p><strong>Michele </strong> <br>
+                        <img :src="'img/avatar' + contacts[activeIndex].avatar + '.jpg'" alt="avatar">
+                        <p><strong> {{ contacts[activeIndex].name }}  </strong> <br>
                             Ultimo accesso oggi alle 16:26
                         </p>
                     </div>
@@ -104,48 +104,9 @@
 
                 <!-- tex-section -->
                 <div class="text-container">
-                    <div class="sent">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, temporibus saepe dignissimos
-                            labore eligendi reprehenderit voluptas quasi, ipsa ut, cumque quod hic! Dolores similique
-                            voluptatem, temporibus nam eum illo facere?</p>
+                    <div :class="curMessage.status" v-for="curMessage in contacts[activeIndex].messages">
+                        <p> {{ curMessage.message }} </p>
                     </div>
-
-                    <div class="received">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus commodi, nemo et, sint
-                            possimus, deserunt beatae impedit pariatur ex corrupti ea. Suscipit laboriosam dolorem
-                            quaerat. Voluptatem esse sed tempore aut.</p>
-                    </div>
-                    <div class="sent">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, temporibus saepe dignissimos
-                            labore eligendi reprehenderit voluptas quasi, ipsa ut, cumque quod hic! Dolores similique
-                            voluptatem, temporibus nam eum illo facere?</p>
-                    </div>
-                    <div class="received">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus commodi, nemo et, sint
-                            possimus, deserunt beatae impedit pariatur ex corrupti ea. Suscipit laboriosam dolorem
-                            quaerat. Voluptatem esse sed tempore aut.</p>
-                    </div>
-                    <div class="sent">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, temporibus saepe dignissimos
-                            labore eligendi reprehenderit voluptas quasi, ipsa ut, cumque quod hic! Dolores similique
-                            voluptatem, temporibus nam eum illo facere?</p>
-                    </div>
-                    <div class="received">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus commodi, nemo et, sint
-                            possimus, deserunt beatae impedit pariatur ex corrupti ea. Suscipit laboriosam dolorem
-                            quaerat. Voluptatem esse sed tempore aut.</p>
-                    </div>
-                    <div class="sent">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, temporibus saepe dignissimos
-                            labore eligendi reprehenderit voluptas quasi, ipsa ut, cumque quod hic! Dolores similique
-                            voluptatem, temporibus nam eum illo facere?</p>
-                    </div>
-                    <div class="received">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus commodi, nemo et, sint
-                            possimus, deserunt beatae impedit pariatur ex corrupti ea. Suscipit laboriosam dolorem
-                            quaerat. Voluptatem esse sed tempore aut.</p>
-                    </div>
-
                 </div>
                 <!-- /tex-section -->
 
