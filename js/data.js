@@ -1,9 +1,20 @@
+const dt = luxon.DateTime;
+
+console.log(dt.now());
+
+
 
 const {createApp} = Vue;
 
 createApp({
     data() {
       return {
+        newMessage: {
+            date: '',
+            message: "",
+            status: 'sent',
+
+        },
         activeIndex: 0,
         contacts: [
             {
@@ -179,9 +190,22 @@ created () {
 methods: {
     changeActiveContact: function(clickedIndex) {
         this.activeIndex = clickedIndex;
-    }
     },
-}).mount('#app')
+
+    addNewMessage: function() {
+        // console.log("messaggio inviato");
+            this.contacts[this.activeIndex].messages.push({ ...this.newMessage });
+            this.newMessage.status = 'sent';
+            this.newMessage.date = "";
+            this.newMessage.message = "";
+            this.newMessage.message = "ok";
+            this.newMessage.status = 'received';
+            this.contacts[this.activeIndex].messages.push({ ...this.newMessage });
+            this.newMessage.message = "";
+            this.newMessage.status = 'sent';
+    },
+
+}}).mount('#app')
 
 
 
